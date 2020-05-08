@@ -247,6 +247,7 @@ on post-fs-data
     chown bluetooth bluetooth /data/@btmtk/dev_cache
     chown bluetooth bluetooth /dev/hid-keyboard
     chmod 0660 /dev/hid-keyboard
+    chmod 0777 /data/nvram/APCFG/APRDEB/BT_Addr
 
     # NFC
     mkdir /data/nfc_socket 0771 nfc radio
