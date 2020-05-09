@@ -212,7 +212,7 @@ on fs
     exec /system/etc/partition_permission.sh 
 
 on post-fs-data
-    mkdir /data/nvram 2770 root system
+    mkdir /data/nvram 2770 system system
     mkdir /data/media 0770 media_rw media_rw
     chmod 0660 /data/misc/wifi/p2p_supplicant.conf
 
@@ -247,7 +247,9 @@ on post-fs-data
     chown bluetooth bluetooth /data/@btmtk/dev_cache
     chown bluetooth bluetooth /dev/hid-keyboard
     chmod 0660 /dev/hid-keyboard
-    chmod 0777 /data/nvram/APCFG/APRDEB/BT_Addr
+    chmod 0660 /data/nvram/APCFG
+    chmod 0660 /data/nvram/APCFG/APRDEB
+    chmod 0660 /data/nvram/APCFG/APRDEB/BT_Addr
 
     # NFC
     mkdir /data/nfc_socket 0771 nfc radio
@@ -323,7 +325,7 @@ on post-fs-data
     chown system system /sys/class/misc/m_batch_misc/batchbatch
     chown system system /sys/class/misc/m_batch_misc/batchflush
 
-	chmod 0660 /sys/class/misc/m_gyro_misc/gyroenablenodata
+    chmod 0660 /sys/class/misc/m_gyro_misc/gyroenablenodata
     chmod 0660 /sys/class/misc/m_gyro_misc/gyroactive
     chmod 0660 /sys/class/misc/m_gyro_misc/gyrodelay
     chmod 0660 /sys/class/misc/m_gyro_misc/gyrobatch
@@ -376,7 +378,7 @@ on post-fs-data
     chown system system /system/bin/sbchk
     chmod 0771 /system/bin/sbchk
 
-	# change key_provisioning 
+    # change key_provisioning 
     mkdir /data/key_provisioning
     chmod 0770 /data/key_provisioning
     chown system system /data/key_provisioning
